@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="box">
+        <div class="song-photo"></div>
+        <div class="song-name"></div>
+        <div class="artist-name"></div>
+        <div class="song-audio">
+            <audio src=""></audio>
+        </div>
+        <div class="range">
+            <div class="curTime">00:00</div>
+            <div class="endTime"></div>
+        </div>
+        <input type="range" id="seekBar" value="0">
+        <div class="control">
+            <div class="prev">
+                <img src="./photo/previous.svg">
+            </div>
+            <div class="playPause">
+                <img src="./photo/play.svg">
+            </div>
+            <div class="next">
+                <img src="./photo/next.svg">
+            </div>
+        </div>
+    </div>
+    <script src="logic.js"></script>
+</body>
+
+</html>
