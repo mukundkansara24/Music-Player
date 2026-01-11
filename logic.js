@@ -33,7 +33,7 @@ function loadSong(index) {
     song_author.innerHTML = songs_details[index].author;
     player.src = `./music/${songs_details[index].id}.m4a`;
     player.load();
-    // playPause.innerHTML = playIcon;
+    playPause.innerHTML = playIcon;
 }
 let pauseIcon = `<img src="./photo/pause.svg">`;
 let playIcon = `<img src="./photo/play.svg">`;
