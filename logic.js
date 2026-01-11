@@ -25,6 +25,8 @@ let player = document.querySelector('audio');
 let song_photo = document.querySelector('.song-photo');
 let curTime = document.querySelector('.curTime');
 
+let pauseIcon = `<img src="./photo/pause.svg">`;
+let playIcon = `<img src="./photo/play.svg">`;
 function loadSong(index) {
 
     song_name.innerHTML = songs_details[index].name;
@@ -35,8 +37,6 @@ function loadSong(index) {
     player.load();
     playPause.innerHTML = playIcon;
 }
-let pauseIcon = `<img src="./photo/pause.svg">`;
-let playIcon = `<img src="./photo/play.svg">`;
 
 loadSong(index);
 playPause.addEventListener('click', function () {
