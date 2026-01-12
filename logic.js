@@ -67,27 +67,20 @@ seekBar.addEventListener('input', function () {
     let value = seekBar.value;
     player.currentTime = value;
 })
-const timeUpdate = setInterval(function () {
+player.addEventListener('timeupdate', function () {
     let timeValue = Math.floor(player.currentTime);
-    let ch = false;
-    if (Math.floor(timeValue) == Math.floor(player.duration)) {
-        seekBar.value = 0;
-        playPause.innerHTML = playIcon;
-        curTime.innerHTML = `00:00`;
-        ch = true;
+    seekBar.value = timeValue;
+    let min = Math.floor(timeValue / 60);
+    let second = timeValue % 60;
+    if (min < 10) {
+        min = '0' + min;
     }
-    if (!ch) {
-        seekBar.value = timeValue;
-        let min = Math.floor(timeValue / 60);
-        let second = timeValue % 60;
-        if (min < 10 && second < 10)
-            curTime.innerHTML = `0${min}:0${second}`;
-        else if (min < 10)
-            curTime.innerHTML = `0${min}:${second}`;
-        else
-            curTime.innerHTML = `${min}:${second}`;
+    if (second < 10) {
+        second = '0' + second;
     }
-}, 1000);
+    console.log(min, second);
+    curTime.innerHTML = `${min}:${second}`;
+});
 const loadTime = player.addEventListener('loadedmetadata', function () {
     let musicEndDur = Math.floor(player.duration);
     seekBar.max = musicEndDur + 1;
@@ -96,9 +89,9 @@ const loadTime = player.addEventListener('loadedmetadata', function () {
     endTime.innerHTML = `0${endMin}:${endSec}`;
 })
 
-const autoPlay = player.addEventListener('ended', function() {
+const autoPlay = player.addEventListener('ended', function () {
     index++;
-    if(index == size) {
+    if (index == size) {
         index = 0;
     }
     loadSong(index);
