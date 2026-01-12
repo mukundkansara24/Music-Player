@@ -78,7 +78,6 @@ player.addEventListener('timeupdate', function () {
     if (second < 10) {
         second = '0' + second;
     }
-    console.log(min, second);
     curTime.innerHTML = `${min}:${second}`;
 });
 const loadTime = player.addEventListener('loadedmetadata', function () {
